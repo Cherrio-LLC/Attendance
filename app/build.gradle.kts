@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId =  "com.cherrio.attendance"
-        minSdkVersion(21)
+        minSdkVersion(23)
         targetSdkVersion(31)
         versionCode = 1
         versionName = "1.0"
@@ -59,7 +59,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
 
     implementation("com.budiyev.android:code-scanner:2.1.0")
-    implementation("com.github.tejpratap46:PDFCreatorAndroid:3.0.2")
+    implementation("com.github.wwdablu:SimplyPDF:2.0.0")
 
     implementation("androidx.room:room-ktx:2.4.0-beta02")
     kapt("androidx.room:room-compiler:2.4.0-beta02")

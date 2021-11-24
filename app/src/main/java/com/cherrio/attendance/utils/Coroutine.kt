@@ -22,3 +22,10 @@ fun <T> StateFlow<T>.collectInView(lifecycleOwner: LifecycleOwner, action: (T) -
         }
     }
 }
+fun doIt(lifecycleOwner: LifecycleOwner, action: suspend () -> Unit){
+    lifecycleOwner.lifecycleScope.launch {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
+            action()
+        }
+    }
+}

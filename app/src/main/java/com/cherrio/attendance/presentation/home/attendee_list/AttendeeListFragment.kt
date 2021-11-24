@@ -37,7 +37,6 @@ class AttendeeListFragment : BaseFragment<FragmentAttendeeListBinding>() {
         viewModel.getAttendeeList(id)
         binding.apply {
             attendeeList.adapter = attendeeAdapter
-
         }
         attendeeAdapter.addItemClicked { entity ->
             viewModel.deleteAttendee(entity)

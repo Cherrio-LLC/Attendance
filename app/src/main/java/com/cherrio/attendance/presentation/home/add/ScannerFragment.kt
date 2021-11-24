@@ -18,6 +18,7 @@ import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.cherrio.attendance.R
 import com.cherrio.attendance.base.BaseFragment
+import com.cherrio.attendance.data.entity.AttendeeEntity
 import com.cherrio.attendance.databinding.FragmentAttendanceListBinding
 import com.cherrio.attendance.databinding.FragmentScannerBinding
 import com.cherrio.attendance.presentation.home.HomeFragment
@@ -38,35 +39,43 @@ import kotlinx.coroutines.launch
 class ScannerFragment : BaseFragment<FragmentScannerBinding>() {
     private lateinit var codeScanner: CodeScanner
     private val viewModel by viewModels<ScannerViewModel>()
+    private val addedAttendeeAdapter = AddedAttendeeAdapter()
 
     override fun useViews() {
         handleBackPressed()
         val classTitle = requireArguments().getString("Class")!!
+        binding.apply {
+            addedList.adapter = addedAttendeeAdapter
+            btnDone.setOnClickListener {
+                goBack()
+            }
+        }
         codeScanner = CodeScanner(requireActivity(), binding.scannerView)
         codeScanner.decodeCallback = DecodeCallback {
             requireActivity().runOnUiThread {
                 viewModel.setScannedText(it.text, classTitle)
-                showConfirmation(it.text)
+                addedAttendeeAdapter.submitList(AttendeeEntity(0,it.text, classTitle))
+                startCamera()
             }
         }
         startCamera()
     }
-    private fun showConfirmation(text: String){
-        MaterialAlertDialogBuilder(requireContext(),
-            com.google.android.material.R.style.MaterialAlertDialog_MaterialComponents)
-            .setTitle("Captured Student")
-            .setMessage("Matric Number: $text")
-            .setNegativeButton("Done") { dialog, which ->
-                goBack()
-            }
-            .setPositiveButton("Continue") { dialog, _ ->
-                // continue
-                dialog.dismiss()
-                startCamera()
-
-            }
-            .show()
-    }
+//    private fun showConfirmation(text: String){
+//        MaterialAlertDialogBuilder(requireContext(),
+//            com.google.android.material.R.style.MaterialAlertDialog_MaterialComponents)
+//            .setTitle("Captured Student")
+//            .setMessage("Matric Number: $text")
+//            .setNegativeButton("Done") { dialog, which ->
+//                goBack()
+//            }
+//            .setPositiveButton("Continue") { dialog, _ ->
+//                // continue
+//                dialog.dismiss()
+//                startCamera()
+//
+//            }
+//            .show()
+//    }
 
 
     override fun getBinding(layoutInflater: LayoutInflater): FragmentScannerBinding {
