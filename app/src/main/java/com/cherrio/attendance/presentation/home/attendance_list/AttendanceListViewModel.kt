@@ -12,6 +12,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -43,10 +45,15 @@ class AttendanceListViewModel @Inject constructor(private val attendanceRepo: At
         _state.value = ListState(list = classAndAttendance)
     }
     fun addClass(title: String, id: String){
-        val classAttendance = ClassAttendance(id, title)
+        val date = id.toLong().toDate()
+        val classAttendance = ClassAttendance(id, title.plus("\n(").plus(date).plus(")"))
         viewModelScope.launch{
             attendanceRepo.addAttendance(classAttendance)
             _state.value = ListState(title = title)
         }
+    }
+    fun Long.toDate(): String {
+        val parser = SimpleDateFormat("dd-MM-yyy", Locale.getDefault())
+        return parser.format(Date(this))
     }
 }

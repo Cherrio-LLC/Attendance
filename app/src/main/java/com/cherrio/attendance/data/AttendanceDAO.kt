@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AttendanceDAO {
 
-    @Query("SELECT * from attendanceentity JOIN attendeeentity ON attendanceentity.class_id = attendeeentity.class")
+    @Query("SELECT * from attendanceentity JOIN attendeeentity ON attendanceentity.class_id = attendeeentity.class ORDER BY attendanceentity.class_id DESC")
     fun loadAttendance(): Flow<Map<AttendanceEntity, List<AttendeeEntity>>>
 
     @Insert
