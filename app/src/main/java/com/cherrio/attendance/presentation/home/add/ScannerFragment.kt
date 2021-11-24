@@ -14,6 +14,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.cherrio.attendance.R
@@ -40,12 +41,14 @@ class ScannerFragment : BaseFragment<FragmentScannerBinding>() {
     private lateinit var codeScanner: CodeScanner
     private val viewModel by viewModels<ScannerViewModel>()
     private val addedAttendeeAdapter = AddedAttendeeAdapter()
+    private var dataId = 0
 
     override fun useViews() {
         handleBackPressed()
         val classTitle = requireArguments().getString("Class")!!
         binding.apply {
             addedList.adapter = addedAttendeeAdapter
+            addedList.layoutManager = LinearLayoutManager(requireContext())
             btnDone.setOnClickListener {
                 goBack()
             }
@@ -54,7 +57,7 @@ class ScannerFragment : BaseFragment<FragmentScannerBinding>() {
         codeScanner.decodeCallback = DecodeCallback {
             requireActivity().runOnUiThread {
                 viewModel.setScannedText(it.text, classTitle)
-                addedAttendeeAdapter.submitList(AttendeeEntity(0,it.text, classTitle))
+                addedAttendeeAdapter.submitList(AttendeeEntity(dataId++,it.text, classTitle))
                 startCamera()
             }
         }

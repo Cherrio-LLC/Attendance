@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -87,6 +88,7 @@ class AttendanceListFragment : BaseFragment<FragmentAttendanceListBinding>() {
         with(state) {
             list?.let {
                 attendanceAdapter.submitList(it)
+                binding.noItem.isVisible = it.size == 0
             }
             title?.let {
 
@@ -95,9 +97,6 @@ class AttendanceListFragment : BaseFragment<FragmentAttendanceListBinding>() {
     }
 
     private fun exportAttendance(classAndAttendance: ClassAndAttendance) {
-        //generatePdf(classAndAttendance)
-//        mClassAndAttendance = classAndAttendance
-//        exportFile("${classAndAttendance.name}.pdf")
         file = File(getOutputDirectory(), "${classAndAttendance.name}.pdf")
         generateIt(file, classAndAttendance)
     }

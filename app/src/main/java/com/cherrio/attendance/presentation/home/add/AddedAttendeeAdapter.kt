@@ -24,7 +24,7 @@ class AddedAttendeeAdapter:
 
                 fun bind(attendeeEntity: AttendeeEntity, position: Int){
                     binding.apply {
-                        txtSerialNo.text = "${position + 1}."
+                        txtSerialNo.text = "${attendeeEntity.id + 1}."
                         txtMatricNo.text = attendeeEntity.matricNo
                     }
                 }
@@ -44,7 +44,7 @@ class AddedAttendeeAdapter:
     override fun getItemCount() = list.size
 
     fun submitList(attendeeEntity: AttendeeEntity){
-        list.add(attendeeEntity)
+        list.add(0,attendeeEntity)
         notifyDataSetChanged()
     }
 
