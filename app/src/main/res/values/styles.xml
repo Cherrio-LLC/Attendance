@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomBttmSheetDialogTheme" parent="@style/Theme.MaterialComponents.Light.Dialog">
+        <item name="bottomSheetStyle">@style/CustomBSStyle</item>
+
+    </style>
+    <style name="CustomBSStyle" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+</resources>
