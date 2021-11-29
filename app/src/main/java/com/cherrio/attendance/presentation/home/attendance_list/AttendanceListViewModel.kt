@@ -46,7 +46,7 @@ class AttendanceListViewModel @Inject constructor(private val attendanceRepo: At
     }
     fun addClass(title: String, id: String){
         val date = id.toLong().toDate()
-        val classAttendance = ClassAttendance(id, title.plus("\n(").plus(date).plus(")"))
+        val classAttendance = ClassAttendance(id, title.plus("(").plus(date).plus(")"))
         viewModelScope.launch{
             attendanceRepo.addAttendance(classAttendance)
             _state.value = ListState(title = title)

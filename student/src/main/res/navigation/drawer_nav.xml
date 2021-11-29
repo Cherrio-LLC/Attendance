@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_nav"
+    app:startDestination="@id/drawer_home">
+
+
+    <fragment
+        android:id="@id/drawer_home"
+        android:name="com.attendance.student.presentation.attendances.CreateAttendance"
+        android:label="AttendanceListFragment">
+
+
+        <action
+            android:id="@+id/action_drawer_home_to_add_attendance_nav"
+            app:destination="@id/add_attendance_nav" />
+
+    </fragment>
+
+
+    <include app:graph="@navigation/add_attendance_nav" />
+
+</navigation>

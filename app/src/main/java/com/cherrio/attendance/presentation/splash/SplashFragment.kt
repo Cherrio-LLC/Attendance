@@ -3,8 +3,6 @@ package com.cherrio.attendance.presentation.splash
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.cherrio.attendance.R
 import com.cherrio.attendance.base.BaseFragment
@@ -20,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
+    private var isLoop = false
 
     override fun useViews() {
         delay()
@@ -31,12 +30,19 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         }, 2000)
     }
 
-    override fun getBinding(inflater: LayoutInflater): FragmentSplashBinding{
-        return FragmentSplashBinding.inflate(inflater)
+    override fun getBinding(layoutInflater: LayoutInflater): FragmentSplashBinding{
+        return FragmentSplashBinding.inflate(layoutInflater)
     }
 
     override fun onResume() {
         super.onResume()
-        //delay()
+        if (isLoop){
+            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        isLoop = true
     }
 }

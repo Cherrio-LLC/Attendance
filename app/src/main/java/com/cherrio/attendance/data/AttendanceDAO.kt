@@ -19,6 +19,9 @@ interface AttendanceDAO {
     @Query("SELECT * from attendanceentity JOIN attendeeentity ON attendanceentity.class_id = attendeeentity.class ORDER BY attendanceentity.class_id DESC")
     fun loadAttendance(): Flow<Map<AttendanceEntity, List<AttendeeEntity>>>
 
+    @Query("SELECT * from attendanceentity ORDER BY attendanceentity.class_id DESC")
+    fun loadEmptyAttendance(): Flow<List<AttendeeEntity>>
+
     @Insert
     suspend fun addAttendance(attendanceEntity: AttendanceEntity)
 

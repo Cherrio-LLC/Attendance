@@ -255,6 +255,7 @@ class AttendanceListFragment : BaseFragment<FragmentAttendanceListBinding>() {
             ).show()
             file.delete()
         } catch (e: Exception) {
+            e.printStackTrace()
             Toast.makeText(requireContext(), "Error occured", Toast.LENGTH_SHORT).show()
         }
     }

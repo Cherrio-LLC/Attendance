@@ -13,4 +13,19 @@
         <item name="windowNoTitle">true</item>
         <item name="android:elevation">0dp</item>
     </style>
+
+    <style name="AttDialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:elevation">0dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">@dimen/dimen_10</item>
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorSecondary">@color/purple_500</item>
+    </style>
 </resources>

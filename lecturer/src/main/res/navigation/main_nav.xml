@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/splashFragment">
+
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.attendance.lecturer.presentation.splash.SplashFragment"
+        android:label="SplashFragment" >
+
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.attendance.lecturer.presentation.home.HomeFragment"
+        android:label="HomeFragment" >
+
+        <action
+            android:id="@+id/action_drawer_home_to_add_attendance_nav"
+            app:destination="@id/add_attendance_nav" />
+
+        <deepLink
+            android:id="@+id/home_deeplink"
+            app:uri="attendance://HomeFragment"
+            />
+    </fragment>
+
+    <include app:graph="@navigation/add_attendance_nav" />
+
+
+</navigation>

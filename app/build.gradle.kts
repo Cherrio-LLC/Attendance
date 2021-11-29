@@ -61,6 +61,17 @@ dependencies {
     implementation("com.budiyev.android:code-scanner:2.1.0")
     implementation("com.github.wwdablu:SimplyPDF:2.0.0")
 
+    implementation("ch.acra:acra-mail:5.8.4")
+    implementation("ch.acra:acra-dialog:5.8.4")
+
+    implementation("com.github.skornei:restserver:1.0.4")
+    implementation("com.google.code.gson:gson:2.8.6")
+
+    implementation("com.budiyev.android:code-scanner:2.1.0")
+
+    implementation("com.github.prabhat1707:EasyWayLocation:2.2")
+
+
     implementation("androidx.room:room-ktx:2.4.0-beta02")
     kapt("androidx.room:room-compiler:2.4.0-beta02")
 

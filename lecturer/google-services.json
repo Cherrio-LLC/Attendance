@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "834488524395",
+    "project_id": "attendance-7e2b2",
+    "storage_bucket": "attendance-7e2b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834488524395:android:3238794b564fe7d3451b2e",
+        "android_client_info": {
+          "package_name": "com.attendance.lecturer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834488524395-i41ofn1q6igshth5f0l1dnjmee3fi9vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj9SoWOFnyeXRriSSO-HDcxLpz05S4TWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834488524395-i41ofn1q6igshth5f0l1dnjmee3fi9vr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834488524395:android:d9605421bff0cba0451b2e",
+        "android_client_info": {
+          "package_name": "com.attendance.student"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834488524395-i41ofn1q6igshth5f0l1dnjmee3fi9vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj9SoWOFnyeXRriSSO-HDcxLpz05S4TWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834488524395-i41ofn1q6igshth5f0l1dnjmee3fi9vr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

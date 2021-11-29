@@ -1,7 +1,10 @@
 package com.cherrio.attendance.presentation.home
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.view.LayoutInflater
 import androidx.activity.OnBackPressedCallback
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -10,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.cherrio.attendance.R
 import com.cherrio.attendance.base.BaseFragment
 import com.cherrio.attendance.databinding.FragmentHomeBinding
+import com.cherrio.attendance.presentation.home.add.ScannerFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -47,5 +51,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     companion object{
         const val DEEPLINK = "attendance://HomeFragment"
         internal lateinit var goBack: () -> Unit
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+
     }
+
 }
